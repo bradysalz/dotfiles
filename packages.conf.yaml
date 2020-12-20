@@ -1,8 +1,12 @@
 - aptget:
+    - autojump
     - curl
-    - git
     - emacs
+    - fzf
+    - git
+    - jq
     - python3
+    - ripgrep
     - tig
     - tmux
     - vim 
