@@ -1,0 +1,11 @@
+- aptget:
+    - curl
+    - git
+    - emacs
+    - python3
+    - tig
+    - tmux
+    - vim 
+    - wget
+    - zsh
+
