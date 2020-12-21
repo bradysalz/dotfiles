@@ -5,7 +5,6 @@
     - fzf
     - git
     - jq
-    - python3
     - ripgrep
     - tig
     - tmux
