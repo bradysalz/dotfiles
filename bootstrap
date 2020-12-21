@@ -5,18 +5,21 @@ set -euf -o pipefail
 APT_CONFIG="packages.conf.yaml"
 RC_CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
-APT_DIR="dotbot_plugin_aptget/aptget.py"
+APT_DIR="dotbot_plugin_aptget"
 
 DOTBOT_BIN="bin/dotbot"
+APT_BIN="aptget.py"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
+git -C "${APT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
+git submodule update --init --recursive "${APT_DIR}"
 
 # Needs sudo
 # Install from apt
-sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/${APT_DIR}" -c "${APT_CONFIG}" "${@}"
+sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/${APT_DIR}/${APT_BIN}" -c "${APT_CONFIG}" "${@}"
 
 # Install oh-my-zsh, if not installed
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then 
