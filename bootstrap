@@ -1,24 +1,36 @@
 #!/usr/bin/env bash
+#!/usr/bin/env python3
 
 set -euf -o pipefail
 
-APT_CONFIG="packages.conf.yaml"
-RC_CONFIG="install.conf.yaml"
-DOTBOT_DIR="dotbot"
 APT_DIR="dotbot_plugin_aptget"
-
-DOTBOT_BIN="bin/dotbot"
 APT_BIN="aptget.py"
+APT_CONFIG="packages.conf.yaml"
+
+DOTBOT_DIR="dotbot"
+DOTBOT_BIN="bin/dotbot"
+DOTBOT_CONFIG="install.conf.yaml"
+
+GIT_DIR="dotbot-git"
+GIT_BIN="git.py"
+GIT_CONFIG="git.conf.yaml"
+
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Install all necessary submodules
+# Figure out how to do this in one line later
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git -C "${APT_DIR}" submodule sync --quiet --recursive
+git -C "${GIT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 git submodule update --init --recursive "${APT_DIR}"
+git submodule update --init --recursive "${GIT_DIR}"
 
-# Needs sudo
-# Install from apt
+# Required for dotbot-aptget
+sudo apt-get install python-apt python3-apt
+
+# Needs sudo, installs from apt
 sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/${APT_DIR}/${APT_BIN}" -c "${APT_CONFIG}" "${@}"
 
 # Install oh-my-zsh, if not installed
@@ -26,6 +38,9 @@ if [ ! -d "${HOME}/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# Install git packages
+python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/${GIT_DIR}/${GIT_BIN}" -c "${GIT_CONFIG}" "${@}"
+
 # Install configs
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${RC_CONFIG}" "${@}"
+python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${DOTBOT_CONFIG}" "${@}"
 

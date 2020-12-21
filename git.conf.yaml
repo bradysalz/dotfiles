@@ -1,0 +1,5 @@
+- git:
+    '~/.fzf':
+        url: https://github.com/junegunn/fzf.git
+        method: clone
+        description: 'fzf'
