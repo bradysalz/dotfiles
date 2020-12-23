@@ -6,6 +6,7 @@
 
 - link:
     ~/.bashrc: bashrc
+    ~/.config/Code/User/settings.json: settings.json
     ~/.oh-my-zsh/custom/themes/brady.zsh-theme: brady.zsh-theme
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
@@ -13,6 +14,7 @@
 
 - create:
     - ~/.vim/undo-history
+    - ~/.config/Code/User
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
