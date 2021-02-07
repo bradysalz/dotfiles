@@ -31,7 +31,7 @@ git submodule update --init --recursive "${GIT_DIR}"
 sudo apt-get install python3-apt
 
 # Needs sudo, installs from apt
-sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/${APT_DIR}/${APT_BIN}" -c "${APT_CONFIG}" "${@}"
+sudo python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/${APT_DIR}/${APT_BIN}" -c "${APT_CONFIG}" "${@}"
 
 # Install oh-my-zsh, if not installed
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then 
