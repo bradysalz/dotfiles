@@ -5,11 +5,14 @@
 - clean: ['~']
 
 - create:
+    - ~/gems
     - ~/.vim/undo-history
     - ~/.config/Code/User
 
 - link:
-    ~/.bashrc: bashrc
+    ~/.bashrc: 
+        path: bashrc
+        force: True
     ~/.config/Code/User/settings.json: 
         path: settings.json
         create: true

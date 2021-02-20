@@ -45,6 +45,9 @@ python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/
 python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${DOTBOT_CONFIG}" "${@}"
 
 # Install ripgrep
-wget https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
-sudo dpkg -i ripgrep_12.1.1_amd64.deb
-rm ripgrep_12.1.1_amd64.deb
+if [! command -v rg &> /dev/null]; then
+    wget https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
+    sudo dpkg -i ripgrep_12.1.1_amd64.deb
+    rm ripgrep_12.1.1_amd64.deb
+fi
+
