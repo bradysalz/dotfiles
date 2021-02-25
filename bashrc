@@ -117,3 +117,9 @@ if ! shopt -oq posix; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# Added by build_setup.sh:
+export PATH=$PATH:/home/brady/tools/bin
+# Added by build_setup.sh:
+export PATH=$PATH:/home/brady/tools/bin
+# Added by build_setup.sh:
+export PATH=$PATH:/home/brady/tools/arcanist/arcanist/bin
