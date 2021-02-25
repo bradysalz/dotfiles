@@ -4,17 +4,26 @@
 
 - clean: ['~']
 
-- link:
-    ~/.bashrc: bashrc
-    ~/.config/Code/User/settings.json: settings.json
-    ~/.oh-my-zsh/custom/themes/brady.zsh-theme: brady.zsh-theme
-    ~/.tmux.conf: tmux.conf
-    ~/.vimrc: vimrc
-    ~/.zshrc: zshrc
-
 - create:
+    - ~/gems
     - ~/.vim/undo-history
     - ~/.config/Code/User
+
+- link:
+    ~/.bashrc: 
+        path: bashrc
+        force: True
+    ~/.config/Code/User/settings.json: 
+        path: settings.json
+        create: true
+    ~/.oh-my-zsh/custom/themes/brady.zsh-theme: brady.zsh-theme
+    ~/.tmux.conf: tmux.conf
+    ~/.vimrc: 
+        path: vimrc
+        force: true
+    ~/.zshrc: 
+        path: zshrc
+        force: True
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

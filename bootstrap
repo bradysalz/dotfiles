@@ -28,10 +28,10 @@ git submodule update --init --recursive "${APT_DIR}"
 git submodule update --init --recursive "${GIT_DIR}"
 
 # Required for dotbot-aptget
-sudo apt-get install python-apt python3-apt
+sudo apt-get install python3-apt
 
 # Needs sudo, installs from apt
-sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/${APT_DIR}/${APT_BIN}" -c "${APT_CONFIG}" "${@}"
+sudo python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/${APT_DIR}/${APT_BIN}" -c "${APT_CONFIG}" "${@}"
 
 # Install oh-my-zsh, if not installed
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then 
@@ -45,6 +45,9 @@ python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/
 python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${DOTBOT_CONFIG}" "${@}"
 
 # Install ripgrep
-wget https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
-sudo dpkg -i ripgrep_12.1.1_amd64.deb
-rm ripgrep_12.1.1_amd64.deb
+if [! command -v rg &> /dev/null]; then
+    wget https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
+    sudo dpkg -i ripgrep_12.1.1_amd64.deb
+    rm ripgrep_12.1.1_amd64.deb
+fi
+
