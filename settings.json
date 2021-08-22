@@ -1,8 +1,21 @@
 {
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 2,
     "editor.formatOnSave": true,
     "python.formatting.provider": "yapf",
     "python.linting.flake8Enabled": true,
     "python.linting.pylintUseMinimalCheckers": false,
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "verilog.linting.linter": "iverilog",
+    "python.showStartPage": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "latex-workshop.message.update.show": false,
+    "workbench.colorTheme": "Default Light+"
 }
