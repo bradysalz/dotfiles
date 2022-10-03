@@ -1,5 +1,6 @@
 - aptget:
     - autojump
+    - bmon
     - curl
     - git
     - jq
