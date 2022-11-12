@@ -18,6 +18,9 @@
         path: settings.json
         create: true
     ~/.oh-my-zsh/custom/themes/brady.zsh-theme: brady.zsh-theme
+    ~/.ssh/config:
+        path: config
+        force: true
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: 
         path: vimrc

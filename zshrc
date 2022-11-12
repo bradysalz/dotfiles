@@ -101,5 +101,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias wdev="cd /mnt/c/Users/brady/devel"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
