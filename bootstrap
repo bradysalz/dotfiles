@@ -17,6 +17,11 @@ GIT_CONFIG="git.conf.yaml"
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+cmd_exists(){
+    command -v $1 &>/dev/null
+}
+
+
 # Install all necessary submodules
 # Figure out how to do this in one line later
 cd "${BASEDIR}"
@@ -33,6 +38,14 @@ sudo apt-get install python3-apt
 # Needs sudo, installs from apt
 sudo python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/${APT_DIR}/${APT_BIN}" -c "${APT_CONFIG}" "${@}"
 
+# Install context-color BEFORE zsh so it doesn't complain about PS1
+if ! cmd_exists context-color; then
+    wget https://raw.githubusercontent.com/ramnes/context-color/master/context-color
+    chmod a+x context-color
+    mkdir -p ~/.local/bin
+    mv context-color ~/.local/bin
+fi
+
 # Install oh-my-zsh, if not installed
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then 
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -44,9 +57,6 @@ python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -p "${BASEDIR}/
 # Install configs
 python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${DOTBOT_CONFIG}" "${@}"
 
-cmd_exists(){
-    command -v $1 &>/dev/null
-}
 
 # Install ripgrep
 if ! cmd_exists rg; then

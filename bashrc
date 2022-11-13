@@ -125,6 +125,7 @@ export PATH="$HOME/gems/bin:$PATH"
 # Added by build_setup.sh:
 export PATH=$PATH:/home/brady/tools/bin
 # Added by build_setup.sh:
-export PATH=$PATH:/home/brady/tools/bin
-# Added by build_setup.sh:
 export PATH=$PATH:/home/brady/tools/arcanist/arcanist/bin
+
+# Make a local binary folder for things I move around
+export PATH=$PATH:~/.local/bin

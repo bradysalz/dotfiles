@@ -9,6 +9,9 @@
 #
 # git untracked files modification from Brian Carper:
 # https://briancarper.net/blog/570/git-info-in-your-zsh-prompt
+# 
+# hostname styles from this dope library
+# https://github.com/ramnes/context-color
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -98,5 +101,5 @@ function steeef_precmd {
 add-zsh-hook precmd steeef_precmd
 
 PROMPT='
-%{$purple%}%n${PR_RST}@%{$orange%}%m${PR_RST} [%{$limegreen%}%~${PR_RST}] $vcs_info_msg_0_$(virtualenv_info)
+%{$purple%}%n${PR_RST}@%{$(context-color -e 0,7,15,18)%m${PR_RST} [%{$limegreen%}%~${PR_RST}] $vcs_info_msg_0_$(virtualenv_info)
 $ '
