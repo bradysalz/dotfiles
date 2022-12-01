@@ -129,3 +129,7 @@ export PATH=$PATH:/home/brady/tools/arcanist/arcanist/bin
 
 # Make a local binary folder for things I move around
 export PATH=$PATH:~/.local/bin
+
+# case insensitive by default
+alias rg="rg -S"
+
