@@ -1,22 +1,22 @@
 Host brady
     HostName bradysalz.com
     User brady
-    ForwardAgent=yes
+    ForwardAgent yes
 
 Host lines
     HostName 192.184.182.143
     User brady
-    ForwardAgent=yes
+    ForwardAgent yes
     Port 3500
 
 Host radio
     HostName  192.184.182.143
     User brady
-    ForwardAgent=yes
+    ForwardAgent yes
     Port 4000
 
 Host nas
     HostName 192.184.182.143
     User brady
-    ForwardAgent=yes
+    ForwardAgent yes
     Port 4500
