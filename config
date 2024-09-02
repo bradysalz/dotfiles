@@ -4,13 +4,13 @@ Host brady
     ForwardAgent yes
 
 Host lines
-    HostName 192.184.182.143
+    HostName 192.184.182.129
     User brady
     ForwardAgent yes
     Port 3500
 
 Host radio
-    HostName  192.184.182.143
+    HostName  192.184.182.129
     User brady
     ForwardAgent yes
     Port 4000
