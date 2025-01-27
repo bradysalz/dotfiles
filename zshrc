@@ -68,7 +68,7 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump colored-man-pages fzf git gitfast ripgrep ssh-agent tmux virtualenv)
+plugins=(autojump colored-man-pages fzf git gitfast ssh-agent tmux virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
